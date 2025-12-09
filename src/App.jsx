@@ -23,6 +23,9 @@ const App = () => {
     const fetchMovies = async () => {
         try {
 
+            const endpoint = `${API_BASE_URL}`
+
+
         } catch (error) {
             console.error(`Error fetching Movie`);
             setErrorMessage('Error fetching movies. Please try again later.');
@@ -44,9 +47,19 @@ const App = () => {
                 <header>
                     <img src='./hero.png' alt="Super Hero movie Banner" />
                     <h1>Find Movies You Will Enjoy Without the Hassle</h1>
+
+
+                    <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />   {/*pass 2 props */}
+
                 </header>
 
-                <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />   {/*pass 2 props */}
+                <section className='all-movies'>
+                    <h2>All Movies</h2>
+
+                    {errorMessage && <p className='text-red-500'>{errorMessage}</p>}
+
+                </section>
+
 
             </div></>
     )
