@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Search from './components/search'
 
+const API_BASE_URL = 'https:/www.movieflix.com'
 
+const API_Key = import.meta.env.VITE_TMDB_API_KEY;
 
 const App = () => {
 
-    const [searchTerm, setSearchTerm] = useState('');
+    const [searchTerm, setSearchTerm] = useState(' ');
+
+    useEffect(() => {
+
+    }, []);
 
     return (
         <><div className='pattern'>
