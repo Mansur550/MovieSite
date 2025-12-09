@@ -9,6 +9,7 @@ const App = () => {
         </div>
             <div className='wrapper'>
                 <header>
+                    <img src='./hero-bg.png' />
                     <h1>Find Movies You Will Enjoy Without the Hassle</h1>
                 </header>
 
