@@ -5,7 +5,7 @@ import Search from './components/search'
 
 const App = () => {
 
-    const [searchTerm, setSearchTerm] = useState('The Dark Knight');
+    const [searchTerm, setSearchTerm] = useState('');
 
     return (
         <><div className='pattern'>
