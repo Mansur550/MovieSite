@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Search from './components/search'
 
-const API_BASE_URL = 'https:/www.movieflix.com'
+const API_BASE_URL = 'https://api.themoviedb.org/3'
 
 const API_Key = import.meta.env.VITE_TMDB_API_KEY;
 
@@ -19,11 +19,22 @@ const App = () => {
 
     const [errorMessage, setErrorMessage] = useState('');
 
+    useEffect(() => {
+
+    }, []);
+
+
 
     const fetchMovies = async () => {
         try {
 
-            const endpoint = `${API_BASE_URL}`
+            const endpoint = `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
+
+            const response = await fetch(endpoint, API_OPTIONS);
+
+            alert(response);
+
+            throw new Error("Failed to fetch movies");
 
 
         } catch (error) {
@@ -36,6 +47,7 @@ const App = () => {
 
 
     useEffect(() => {
+        fetchMovies();
 
     }, []);
 
