@@ -18,6 +18,9 @@ const App = () => {
     const [searchTerm, setSearchTerm] = useState(' ');
 
     const [errorMessage, setErrorMessage] = useState('');
+    const [movieList, setMovielist] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
 
     useEffect(() => {
 
@@ -38,7 +41,16 @@ const App = () => {
                 throw new Error("Failed to fetch movies");
 
             }
+
             const data = await response.json();
+
+            if (data.Response === 'False') {
+                setErrorMessage(data.Error || 'Failed to fetch movies');
+                setMovielist([]);
+                return;
+            }
+
+            setMovielist(data.results || []);
 
 
         } catch (error) {
