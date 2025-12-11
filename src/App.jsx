@@ -21,7 +21,7 @@ const App = () => {
 
     const [errorMessage, setErrorMessage] = useState('');
     const [movieList, setMovielist] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
 
     useEffect(() => {
@@ -62,7 +62,7 @@ const App = () => {
             console.error(`Error fetching Movie`);
             setErrorMessage('Error fetching movies. Please try again later.');
         } finally {
-            setIsLoading(true);
+            setIsLoading(false);
         }
     }
 
@@ -89,7 +89,7 @@ const App = () => {
                 </header>
 
                 <section className='all-movies'>
-                    <h2>All Movies</h2>
+                    <h2 className='mt-[20px]'>All Movies</h2>
 
                     {isLoading ? (
                         <Spinner />
