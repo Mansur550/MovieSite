@@ -34,7 +34,11 @@ const App = () => {
 
             alert(response);
 
-            throw new Error("Failed to fetch movies");
+            if (!response) {
+                throw new Error("Failed to fetch movies");
+
+            }
+            const data = await response.json();
 
 
         } catch (error) {
