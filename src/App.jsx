@@ -11,26 +11,28 @@ const API_Key = import.meta.env.VITE_TMDB_API_KEY;
 const API_OPTIONS = {
     method: 'GET',
     headers: {
-        accept: 'application/jason',
+        accept: 'application/json',
         Authorization: `Bearer ${API_Key}`
     }
 }
 
 const App = () => {
 
-    const [searchTerm, setSearchTerm] = useState(' ');
+    const [searchTerm, setSearchTerm] = useState('');
 
     const [errorMessage, setErrorMessage] = useState('');
     const [movieList, setMovielist] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [debouncedSearchTerm, setDebounceedSearchTerm] = useState('')
 
-    useDebounce(() => setDebounceedSearchTerm(searchTerm), 500, [searchTerm])
+    useDebounce(() => setDebounceedSearchTerm(searchTerm), 500, [searchTerm]);
+    // const fetchMovies = async (query = '') => {... }
 
 
     useEffect(() => {
 
-    }, []);
+        fetchMovies(debouncedSearchTerm)
+    }, [debouncedSearchTerm]);
 
 
 
@@ -77,10 +79,10 @@ const App = () => {
 
 
 
-    useEffect(() => {
-        fetchMovies(searchTerm);
+    // useEffect(() => {
+    //     fetchMovies(searchTerm);
 
-    }, [searchTerm]);
+    // }, [searchTerm]);
 
     return (
         <><div className='pattern'>
